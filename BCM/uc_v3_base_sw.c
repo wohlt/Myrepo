@@ -51,7 +51,6 @@ int main(void)
 {
 	timer_init();
 	Init();
-	Set_BCM_Freigabe;
 	while(1)
 	{		
 		//can_task();

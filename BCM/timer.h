@@ -13,16 +13,10 @@
 #ifndef TIMER_H_
 #define TIMER_H_
 
-
-extern volatile uint32_t millisec_count;
-extern volatile uint8_t flag_1ms;
-
 void timer_init(void);
 void timer_task();
 uint32_t Get_Sys_Tick();
 
-void timer_1ms_task();		//1 kHz
-void timer_5ms_task();		//200 Hz
 void timer_10ms_task();		//100 Hz
 void timer_50ms_task();		//20 Hz
 void timer_100ms_task();	//10 Hz
