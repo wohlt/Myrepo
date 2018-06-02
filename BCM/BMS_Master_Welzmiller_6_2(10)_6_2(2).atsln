@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "BMS_Master_Welzmiller_6_2(2)", "BMS_Master_Welzmiller_6_2(10)_6_2(2).cproj", "{100FE373-2D0A-4192-A3E5-2BD33A4B63D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{100FE373-2D0A-4192-A3E5-2BD33A4B63D8}.Debug|AVR.ActiveCfg = Debug|AVR
+		{100FE373-2D0A-4192-A3E5-2BD33A4B63D8}.Debug|AVR.Build.0 = Debug|AVR
+		{100FE373-2D0A-4192-A3E5-2BD33A4B63D8}.Release|AVR.ActiveCfg = Release|AVR
+		{100FE373-2D0A-4192-A3E5-2BD33A4B63D8}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
