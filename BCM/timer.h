@@ -13,6 +13,8 @@
 #ifndef TIMER_H_
 #define TIMER_H_
 
+extern volatile uint32_t millisec_count;
+
 void timer_init(void);
 void timer_task();
 uint32_t Get_Sys_Tick();

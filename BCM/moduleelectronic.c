@@ -92,24 +92,24 @@ void Moduleelectronic_Task()	//Call every 50ms
 	
 	
 		//-----------------------------Get Cell Temperature and check them---------------------------------	
-		//if(!bmschip_getTemperature(0))
-		//{	
-			//if(bms.temp.temp_max>=OVERTEMP)
-			//{
-				//tempcounter++;
-				//if(tempcounter >= DEBOUNCELIMIT)
-				//{
-					//tempcounter = 0;
-					//temp_status = TEMP_ERROR;
-				//}
-			//}
-			//else
-			//{
-				//tempcounter = 0;
-				//temp_status = TEMP_OK;
-			//}
-			//CAN_SCHEDULE_MESSAGE4;
-		//}
+		if(!bmschip_getTemperature(0))
+		{	
+			if(bms.temp.temp_max>=OVERTEMP)
+			{
+				tempcounter++;
+				if(tempcounter >= DEBOUNCELIMIT)
+				{
+					tempcounter = 0;
+					temp_status = TEMP_ERROR;
+				}
+			}
+			else
+			{
+				tempcounter = 0;
+				temp_status = TEMP_OK;
+			}
+			CAN_SCHEDULE_MESSAGE4;
+		}
 		
 	}
 }

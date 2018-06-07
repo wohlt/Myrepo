@@ -315,8 +315,8 @@ uint8_t bmschip_getVoltages(uint16_t *voltage)
 	//LTC ADC Wandlung abwarten (3000us) 
 
 	wait_count = TCNT1;
-	wait_milli = millisec_count;
-	while((wait_milli+2) > millisec_count);	//2000us
+	wait_milli = Get_Sys_Tick();
+	while((wait_milli+2) > Get_Sys_Tick());	//2000us
 	while(wait_count >= TCNT1);
 	wait_count = TCNT1;
 	while ((((wait_count + 1000) >= TCNT1)&&(wait_count<TCNT1)) || ((wait_count>TCNT1) && ((TCNT1 + ICR1)<(wait_count + 1000)))); //500us
@@ -355,6 +355,7 @@ uint8_t bmschip_getVoltages(uint16_t *voltage)
 			else
 			{
 				ret = 1;	//PEC falsch!
+				break;
 			}
 		}
 		SPI_CS_LTC6804_HIGH;
@@ -556,7 +557,7 @@ uint8_t bmschip_getTemperature(uint8_t pin)
 	
 	bmschip_startGPIO(pin);		//Spannung an jeweiligem GPIO
 	
-	for(i = 0;i<7;i++ )
+	for(i = 0;i<7;i++)
 	{
 		wait_count = TCNT1;
 		while ((((wait_count + 810) >= TCNT1)&&(wait_count<TCNT1)) || ((wait_count>TCNT1) && ((TCNT1 + ICR1)<(wait_count + 900)))); //405us

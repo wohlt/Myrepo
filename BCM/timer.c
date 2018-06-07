@@ -19,7 +19,7 @@
 #include "ivtcontrol.h"
 
 
-static uint32_t millisec_count = 0;
+volatile uint32_t millisec_count = 0;
 static uint8_t flag_1ms = 0;
 static uint8_t flag_5ms = 0;
 static uint8_t flag_10ms = 0;
