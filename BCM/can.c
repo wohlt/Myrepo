@@ -252,7 +252,7 @@ void can_receive_task(can_msg_t msg)
 		//HV_Request
 		case 0x001:	
 			hv_request = msg.data.b[0] & 0x01;
-			error_acknowledge = msg.data.b[0] & 0x02
+			error_acknowledge = msg.data.b[0] & 0x02;
 			if((msg.data.b[1] == 1))
 				SET_TRUE(flagBalActiv);
 			else

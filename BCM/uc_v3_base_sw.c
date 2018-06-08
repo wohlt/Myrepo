@@ -53,7 +53,7 @@ int main(void)
 	Init();
 	while(1)
 	{		
-		//can_task();
+		can_task();
 		timer_task();
 		//_delay_ms(5); 
 		

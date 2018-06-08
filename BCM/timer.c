@@ -63,17 +63,17 @@ void timer_task()
 		flag_50ms = 0;
 	}
 	
-	//if(flag_100ms)
-	//{
-		//timer_100ms_task();
-		//flag_100ms = 0;
-	//}
-	
-	if(flag_500ms)
+	if(flag_100ms)
 	{
-		timer_500ms_task();
-		flag_500ms = 0;
+		timer_100ms_task();
+		flag_100ms = 0;
 	}
+	
+	//if(flag_500ms)
+	//{
+		//timer_500ms_task();
+		//flag_500ms = 0;
+	//}
 	
 	//if(flag_1s)
 	//{
@@ -178,16 +178,17 @@ void timer_50ms_task()	//20 Hz
 {
 	ISO_Control_Task();
 	IVT_Control_Task();
+	
 }
 
 void timer_100ms_task()	//10 Hz
 {
-	
+	Moduleelectronic_Task();
 }
 
 void timer_500ms_task()	//2 Hz
 {
-	Moduleelectronic_Task();
+	
 }
 
 

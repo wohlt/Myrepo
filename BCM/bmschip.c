@@ -323,8 +323,7 @@ uint8_t bmschip_getVoltages(uint16_t *voltage)
 		//
 	//wait_milli = millisec_count;
 	//while((wait_milli+3) > millisec_count);	//3000us
-	
-	
+		
 	//LTC Spannungen auslesen
 	for(group = 0; group < 4; group++)		
 	{
