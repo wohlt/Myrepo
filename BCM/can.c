@@ -320,7 +320,7 @@ void can_send_task(uint8_t index)
 						}
 			 			break;
 		
-		//Balancing Status
+		//Bancing Status
 		case 3:			for(i=0; i<SLAVE_BOARDS; i++)
 						{
 							msg.data.b[0] = (GET_LOW_BYTE(bms.balancing.cells[i]));	
