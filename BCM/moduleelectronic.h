@@ -14,4 +14,5 @@
 
 uint8_t Get_Temp_Status();
 uint8_t Get_Voltage_Status();
+uint8_t Get_Communication_Status();
 void Moduleelectronic_Task();

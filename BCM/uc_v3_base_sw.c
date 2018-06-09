@@ -35,7 +35,7 @@ void Init()
 	Reset_BCM_Freigabe;
 	usart_init(115200);										//Init UART für RS232-Schnittstelle mit Baudrate
 	can_init(500);											//Init CAN Bus mit 500kbps (moeglich 1Mbps, 500kbps, 250kbps, 125kbps)
-	spi_init_master(16);									//Prescaler 32 -> 0.5MHz spi clock @ 16MHz CPU clock
+	spi_init_master(32);									//Prescaler 32 -> 0.5MHz spi clock @ 16MHz CPU clock
 	bmschip_init(UNDERVOLT, OVERVOLT);
 
 	//Nach Initialisierung -> Freigabe an ARM
@@ -44,7 +44,6 @@ void Init()
 	
 	usart_transmit_string("\f");
 	usart_transmit_string("AVR-Initialisierung erfolgreich!\r\n");
-	usart_transmit_string("Warte auf Test-Freigabe!");
 }
 
 int main(void)
@@ -52,11 +51,10 @@ int main(void)
 	timer_init();
 	Init();
 	while(1)
-	{		
+	{	
+		Statemachine_Task();
 		can_task();
 		timer_task();
-		//_delay_ms(5); 
-		
 	}
 	return 42;			//the answer to life, the universe and everything.
 }

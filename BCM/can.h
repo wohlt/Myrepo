@@ -17,6 +17,11 @@
 #define CAN_H_
 #include "header.h"
 
+#define	 HV_NOREQUEST 0
+#define  HV_REQUESTED 1
+#define  NOERRORACKNOWLEDGE 0
+#define  ERRORACKNOWLEDGED  1
+
 #define CAN_SCHEDULE_MESSAGE0 can_tx_flags |= 0x01
 #define CAN_SCHEDULE_MESSAGE1 can_tx_flags |= 0x02
 #define CAN_SCHEDULE_MESSAGE2 can_tx_flags |= 0x04

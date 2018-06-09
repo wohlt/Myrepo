@@ -28,7 +28,7 @@ uint8_t Get_HV_Request_Status()
 
 void Reset_HV_Request()
 {
-	hv_request = 0;
+	hv_request = HV_NOREQUEST;
 }
 
 uint8_t Get_Error_Acknowledge_Status()
@@ -38,7 +38,7 @@ uint8_t Get_Error_Acknowledge_Status()
 
 void Reset_Error_Acknowledge()
 {
-	error_acknowledge = 0;
+	error_acknowledge = NOERRORACKNOWLEDGE;
 }
 
 void can_init(uint16_t kbaudrate)
@@ -252,7 +252,10 @@ void can_receive_task(can_msg_t msg)
 		//HV_Request
 		case 0x001:	
 			hv_request = msg.data.b[0] & 0x01;
-			error_acknowledge = msg.data.b[0] & 0x02;
+			if(Get_Statemachine_State() == ERROR)
+			{
+				error_acknowledge = msg.data.b[0] & 0x02;
+			}
 			if((msg.data.b[1] == 1))
 				SET_TRUE(flagBalActiv);
 			else

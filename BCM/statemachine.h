@@ -8,9 +8,10 @@
 
 typedef enum State_e
 {
-	IDLE = 0,
+	INACTIVE = 0,
 	OPERATIONAL = 1,
 	ERROR = 2
 }State_t;
 
+void Statemachine_Task();
 State_t Get_Statemachine_State();

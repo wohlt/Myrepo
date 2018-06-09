@@ -15,30 +15,32 @@
 #include "ivtcontrol.h"
 #include "isocontrol.h"
 
-#define WAITING  0
+#define IDLE  0
 #define TESTS 1
-#define TESTTIME 250
+#define TESTTIME 500
 
 
-	static State_t state = IDLE;						//Current statemachine state
+	static State_t state = INACTIVE;						//Current statemachine state
 	static uint8_t hv_ready = 0;
 	
 	void (*StateMachineFunctions[])();					//Function Pointer Array Declaration for State Machine
+	
 	
 	State_t Get_Statemachine_State()
 	{
 		return state;	
 	}
+	
 				
-	void Idle()
+	void Inactive()
 	{
-		static uint8_t substate = WAITING;
+		static uint8_t substate = IDLE;
 		
 		switch (substate)
 		{
-			case WAITING:
+			case IDLE:
 			{
-				if(Get_HV_Request_Status())
+				if(Get_HV_Request_Status() == HV_REQUESTED)
 				{
 					substate = TESTS;
 				}
@@ -56,28 +58,30 @@
 					entry = 0;
 				}
 				
-				if(Get_Voltage_Status() == VOLTAGE_ERROR || Get_Current_Status() == CURRENT_ERROR || Get_ISO_Status() == ISO_ERROR || Get_Temp_Status() == TEMP_ERROR)
+				if(Get_Voltage_Status() == VOLTAGE_ERROR || Get_Current_Status() == CURRENT_ERROR || Get_ISO_Status() == ISO_ERROR ||
+				 Get_Temp_Status() == TEMP_ERROR || Get_Interlock_Status() == INTERLOCK_ERROR || Get_Communication_Status() == COMMUNICATION_ERROR)
 				{
-					substate = WAITING;
+					substate = IDLE;
 					entry = 1;
 				}
 				else if(Get_Sys_Tick() - teststarttime >= TESTTIME)
 				{
 					hv_ready = 1;
 					entry = 1;
-					substate = WAITING;
+					substate = IDLE;
 				}
 			}			
 			break;
 			
 			default:
 			{
-				substate = WAITING;				
+				hv_ready = 0;
+				substate = IDLE;				
 			}
 			break;			
 		}
 		
-		if(Get_HV_Request_Status() && hv_ready)
+		if(hv_ready)
 		{
 			state = OPERATIONAL;
 			Set_BCM_Freigabe;
@@ -86,18 +90,26 @@
 	
 	void Operational()
 	{
-		if(Get_Voltage_Status() == VOLTAGE_ERROR || Get_Current_Status() == CURRENT_ERROR || Get_ISO_Status() == ISO_ERROR || Get_Temp_Status() == TEMP_ERROR)
+		if(Get_Voltage_Status() == VOLTAGE_ERROR || Get_Current_Status() == CURRENT_ERROR || Get_ISO_Status() == ISO_ERROR || 
+		Get_Temp_Status() == TEMP_ERROR || Get_Interlock_Status() == INTERLOCK_ERROR || Get_Communication_Status() == COMMUNICATION_ERROR)
 		{	
 			Reset_BCM_Freigabe;
+			hv_ready = 0;
 			state = ERROR;
+		}
+		else if(Get_HV_Request_Status() == HV_NOREQUEST)
+		{
+			Reset_BCM_Freigabe;
+			state = INACTIVE
+			hv_ready = 0;
 		}
 	}
 	
 	void Error()
 	{
-		if(Get_Error_Acknowledge_Status())
+		if(Get_Error_Acknowledge_Status() == ERRORACKNOWLEDGED)
 		{
-			state = IDLE;
+			state = INACTIVE;
 			Reset_HV_Request();
 			Reset_Error_Acknowledge();
 		}
@@ -106,7 +118,7 @@
 	//Function Pointer Array for state machine
 	void (*StateMachineFunctions[])() =
 	{
-		Idle,
+		Inactive,
 		Operational,
 		Error
 	};

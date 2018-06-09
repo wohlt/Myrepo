@@ -13,4 +13,5 @@
 void Enable_ISO_Control();
 void Disable_ISO_Control();
 uint8_t Get_ISO_Status();
+uint8_t Get_Interlock_Status();
 void ISO_Control_Task();

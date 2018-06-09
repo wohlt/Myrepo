@@ -51,6 +51,10 @@ uint8_t Get_Voltage_Status()
 	return voltage_status;
 }
 
+uint8_t Get_Communication_Status()
+{
+	return communication_status;
+}
 
 void Moduleelectronic_Task()	//Call every 50ms
 {
@@ -78,6 +82,58 @@ void Moduleelectronic_Task()	//Call every 50ms
 				voltage_status = VOLTAGE_OK;
 				voltagecounter = 0;
 			}
+			
+			//-----------------------------Get Cell Temperature and check them---------------------------------
+			if(!bmschip_getTemperature(0))
+			{
+				if(bms.temp.temp_max>=OVERTEMP)
+				{
+					tempcounter++;
+					if(tempcounter >= DEBOUNCELIMIT)
+					{
+						tempcounter = 0;
+						temp_status = TEMP_ERROR;
+					}
+				}
+				else
+				{
+					tempcounter = 0;
+					temp_status = TEMP_OK;
+				}
+				//CAN_SCHEDULE_MESSAGE4;
+				
+				
+				//Balancing empfohlen?
+				Rec = bmschip_recommendBalancing(bms.volt.val, bms.volt.min, bms.balancing.undervoltage, bms.balancing.RecCells);
+
+				//Balancing erlaubt?
+				if(IS_TRUE(flagBalActiv))
+				{
+					bmschip_checkBalancing(bms.volt.val, bms.volt.min, bms.balancing.undervoltage, bms.balancing.cells);
+					bmschip_writeConfig();
+				}
+
+				if(IS_FALSE(flagBalActiv))
+				{
+					bmschip_writeConfig();
+					for(int i=0;i<SLAVE_BOARDS;i++)
+					{
+						bms.balancing.cells[i] = 0x0000;
+					}
+				}				
+				
+			}
+			else
+			{
+				CAN_SCHEDULE_MESSAGE0;
+				communicationcounter++;
+				if(communicationcounter >= DEBOUNCELIMIT)
+				{
+					communicationcounter = 0;
+					communication_status = communication_status;
+				}
+			}			
+			
 		}
 		else															//PEC was wrong
 		{
@@ -90,48 +146,6 @@ void Moduleelectronic_Task()	//Call every 50ms
 			}
 		}
 //		CAN_SCHEDULE_MESSAGE2;
-	
-	
-		//-----------------------------Get Cell Temperature and check them---------------------------------	
-		if(!bmschip_getTemperature(0))
-		{	
-			if(bms.temp.temp_max>=OVERTEMP)
-			{
-				tempcounter++;
-				if(tempcounter >= DEBOUNCELIMIT)
-				{
-					tempcounter = 0;
-					temp_status = TEMP_ERROR;
-				}
-			}
-			else
-			{
-				tempcounter = 0;
-				temp_status = TEMP_OK;
-			}
-			//CAN_SCHEDULE_MESSAGE4;
-		}
-		
-		SET_FALSE(flagBalActiv);
-		
-		//Balancing empfohlen?
-		Rec = bmschip_recommendBalancing(bms.volt.val, bms.volt.min, bms.balancing.undervoltage, bms.balancing.RecCells);
-
-		//Balancing erlaubt?
-		if(IS_TRUE(flagBalActiv))
-		{
-			bmschip_checkBalancing(bms.volt.val, bms.volt.min, bms.balancing.undervoltage, bms.balancing.cells);
-			bmschip_writeConfig();
-		}
-
-		if(IS_FALSE(flagBalActiv))
-		{
-			bmschip_writeConfig();
-			for(int i=0;i<SLAVE_BOARDS;i++)
-			{
-				bms.balancing.cells[i] = 0x0000;
-			}
-		}
-		
+			
 	}
 }
