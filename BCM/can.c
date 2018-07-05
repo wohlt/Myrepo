@@ -254,7 +254,7 @@ void can_receive_task(can_msg_t msg)
 			hv_request = msg.data.b[0] & 0x01;
 			if(Get_Statemachine_State() == ERROR)
 			{
-				error_acknowledge = msg.data.b[0] & 0x02;
+				error_acknowledge = (msg.data.b[0] & 0x02)>>1;
 			}
 			if((msg.data.b[1] == 1))
 				SET_TRUE(flagBalActiv);

@@ -41,20 +41,20 @@ void ISO_Control_Task()
 	{
 		if(ISO_PIN_STATE)
 		{
-			iso_status = ISO_ERROR;
+			iso_status = ISO_OK;
 		}
 		else
 		{
-			iso_status = ISO_OK;
+			iso_status = ISO_ERROR;
 		}
 		
 		if(INTERLOCK_PIN_STATE)
 		{
-			interlock_status = INTERLOCK_ERROR;
+			interlock_status = INTERLOCK_OK;
 		}
 		else
 		{
-			interlock_status = INTERLOCK_OK;
+			interlock_status = INTERLOCK_ERROR;
 		}
 	}
 }

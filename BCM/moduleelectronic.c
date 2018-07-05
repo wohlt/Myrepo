@@ -60,6 +60,13 @@ void Moduleelectronic_Task()	//Call every 50ms
 {
 	if(enabled)
 	{
+		//SET_FALSE(flagBalActiv);
+		//bmschip_writeConfig();
+		//for(int i=0;i<SLAVE_BOARDS;i++)
+		//{
+			//bms.balancing.cells[i] = 0x0000;
+		//}
+		
 		//-----------------------------Get Cell Voltages and check them-------------------------------------
 		if(!bmschip_getVoltages(bms.volt.val))							//PEC OK?
 		{
@@ -100,9 +107,9 @@ void Moduleelectronic_Task()	//Call every 50ms
 					tempcounter = 0;
 					temp_status = TEMP_OK;
 				}
-				//CAN_SCHEDULE_MESSAGE4;
+				CAN_SCHEDULE_MESSAGE4;
 				
-				
+
 				//Balancing empfohlen?
 				Rec = bmschip_recommendBalancing(bms.volt.val, bms.volt.min, bms.balancing.undervoltage, bms.balancing.RecCells);
 
@@ -125,24 +132,22 @@ void Moduleelectronic_Task()	//Call every 50ms
 			}
 			else
 			{
-				CAN_SCHEDULE_MESSAGE0;
 				communicationcounter++;
 				if(communicationcounter >= DEBOUNCELIMIT)
 				{
 					communicationcounter = 0;
-					communication_status = communication_status;
+					communication_status = COMMUNICATION_ERROR;
 				}
 			}			
 			
 		}
 		else															//PEC was wrong
 		{
-			CAN_SCHEDULE_MESSAGE0;
 			communicationcounter++;
 			if(communicationcounter >= DEBOUNCELIMIT)
 			{
 				communicationcounter = 0;
-				communication_status = communication_status;
+				communication_status = COMMUNICATION_ERROR;
 			}
 		}
 //		CAN_SCHEDULE_MESSAGE2;

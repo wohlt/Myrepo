@@ -69,11 +69,11 @@ void timer_task()
 		flag_100ms = 0;
 	}
 	
-	//if(flag_500ms)
-	//{
-		//timer_500ms_task();
-		//flag_500ms = 0;
-	//}
+	if(flag_500ms)
+	{
+		timer_500ms_task();
+		flag_500ms = 0;
+	}
 	
 	//if(flag_1s)
 	//{
@@ -188,7 +188,7 @@ void timer_100ms_task()	//10 Hz
 
 void timer_500ms_task()	//2 Hz
 {
-	
+	CAN_SCHEDULE_MESSAGE0;
 }
 
 

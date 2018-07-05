@@ -7,7 +7,7 @@ d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\lib
 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega64m1/avr5/crtatmega64m1.o (exit)
 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                              DigIO.o (__tablejump2__)
+                              bmschip.o (__tablejump2__)
 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
                               bmschip.o (__do_copy_data)
 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
@@ -61,20 +61,16 @@ Discarded input sections
  .data          0x00000000        0x0 bmschip.o
  .bss           0x00000000        0x0 bmschip.o
  .text.evaluate_Current
-                0x00000000      0x1ea bmschip.o
+                0x00000000      0x426 bmschip.o
  .text          0x00000000        0x0 can.o
  .data          0x00000000        0x0 can.o
  .bss           0x00000000        0x0 can.o
- .text.Get_HV_Request_Status
-                0x00000000        0x6 can.o
- .text.Reset_HV_Request
-                0x00000000        0x6 can.o
- .text.Get_Error_Acknowledge_Status
-                0x00000000        0x6 can.o
- .text.Reset_Error_Acknowledge
-                0x00000000        0x6 can.o
+ .rodata.cells_per_board
+                0x00000000       0x20 can.o
+ .rodata.crc15Table
+                0x00000000      0x200 can.o
  .text.Reactivate_IVT_MOB
-                0x00000000        0xe can.o
+                0x00000000       0x24 can.o
  .text          0x00000000        0x0 DigIO.o
  .data          0x00000000        0x0 DigIO.o
  .bss           0x00000000        0x0 DigIO.o
@@ -82,108 +78,103 @@ Discarded input sections
  .data          0x00000000        0x0 isocontrol.o
  .bss           0x00000000        0x0 isocontrol.o
  .text.Enable_ISO_Control
-                0x00000000        0x8 isocontrol.o
+                0x00000000       0x16 isocontrol.o
  .text.Disable_ISO_Control
-                0x00000000        0xe isocontrol.o
- .text.Get_ISO_Status
-                0x00000000        0x6 isocontrol.o
- .text.Get_Interlock_Status
-                0x00000000        0x6 isocontrol.o
+                0x00000000       0x1c isocontrol.o
  .text          0x00000000        0x0 ivtcontrol.o
  .data          0x00000000        0x0 ivtcontrol.o
  .bss           0x00000000        0x0 ivtcontrol.o
+ .rodata.cells_per_board
+                0x00000000       0x20 ivtcontrol.o
+ .rodata.crc15Table
+                0x00000000      0x200 ivtcontrol.o
  .text.Enable_IVT_Control
-                0x00000000        0x8 ivtcontrol.o
+                0x00000000       0x16 ivtcontrol.o
  .text.Disable_IVT_Control
-                0x00000000        0xa ivtcontrol.o
- .text.Get_Current_Status
-                0x00000000        0x6 ivtcontrol.o
- .text.abs32    0x00000000       0x1a ivtcontrol.o
+                0x00000000       0x18 ivtcontrol.o
  .text          0x00000000        0x0 moduleelectronic.o
  .data          0x00000000        0x0 moduleelectronic.o
  .bss           0x00000000        0x0 moduleelectronic.o
+ .rodata.cells_per_board
+                0x00000000       0x20 moduleelectronic.o
+ .rodata.crc15Table
+                0x00000000      0x200 moduleelectronic.o
  .text.Enable_Moduleelectronic_Module
-                0x00000000        0x8 moduleelectronic.o
+                0x00000000       0x16 moduleelectronic.o
  .text.Disable_Moduleelectronic_Module
-                0x00000000        0xe moduleelectronic.o
- .text.Get_Temp_Status
-                0x00000000        0x6 moduleelectronic.o
- .text.Get_Voltage_Status
-                0x00000000        0x6 moduleelectronic.o
+                0x00000000       0x20 moduleelectronic.o
  .text          0x00000000        0x0 SPI.o
  .data          0x00000000        0x0 SPI.o
  .bss           0x00000000        0x0 SPI.o
+ .rodata.cells_per_board
+                0x00000000       0x20 SPI.o
+ .rodata.crc15Table
+                0x00000000      0x200 SPI.o
  .text.Get_SPI_Status
-                0x00000000        0x6 SPI.o
+                0x00000000       0x12 SPI.o
  .text.SPI_Transceive_IT
-                0x00000000       0x2e SPI.o
+                0x00000000       0x90 SPI.o
  .text          0x00000000        0x0 statemachine.o
  .data          0x00000000        0x0 statemachine.o
  .bss           0x00000000        0x0 statemachine.o
- .text.Idle     0x00000000       0xe2 statemachine.o
- .text.Operational
-                0x00000000       0x2a statemachine.o
- .text.Error    0x00000000       0x16 statemachine.o
- .text.Statemachine_Task
-                0x00000000       0x18 statemachine.o
- .bss.teststarttime.1700
-                0x00000000        0x4 statemachine.o
- .data.entry.1699
-                0x00000000        0x2 statemachine.o
- .bss.substate.1695
-                0x00000000        0x1 statemachine.o
- .data.StateMachineFunctions
-                0x00000000        0x6 statemachine.o
- .bss.hv_ready  0x00000000        0x1 statemachine.o
  .text          0x00000000        0x0 timer.o
  .data          0x00000000        0x0 timer.o
  .bss           0x00000000        0x0 timer.o
+ .rodata.cells_per_board
+                0x00000000       0x20 timer.o
+ .rodata.crc15Table
+                0x00000000      0x200 timer.o
  .text.timer_1ms_task
-                0x00000000        0x2 timer.o
+                0x00000000       0x10 timer.o
  .text.timer_5ms_task
-                0x00000000        0x2 timer.o
+                0x00000000       0x10 timer.o
  .text.timer_10ms_task
-                0x00000000        0x2 timer.o
- .text.timer_100ms_task
-                0x00000000        0x6 timer.o
- .text.timer_500ms_task
-                0x00000000        0x2 timer.o
+                0x00000000       0x10 timer.o
  .text.timer_1s_task
-                0x00000000        0x2 timer.o
+                0x00000000       0x10 timer.o
  .text          0x00000000        0x0 uc_v3_base_sw.o
  .data          0x00000000        0x0 uc_v3_base_sw.o
  .bss           0x00000000        0x0 uc_v3_base_sw.o
+ .rodata.cells_per_board
+                0x00000000       0x20 uc_v3_base_sw.o
+ .rodata.crc15Table
+                0x00000000      0x200 uc_v3_base_sw.o
  .text          0x00000000        0x0 usart.o
  .data          0x00000000        0x0 usart.o
  .bss           0x00000000        0x0 usart.o
  .text.usart_receive
-                0x00000000       0x18 usart.o
+                0x00000000       0x42 usart.o
  .text.usart_write_it
-                0x00000000       0xa4 usart.o
+                0x00000000       0xf4 usart.o
  .text          0x00000000        0x0 user_tasks.o
  .data          0x00000000        0x0 user_tasks.o
  .bss           0x00000000        0x0 user_tasks.o
- .bss.bal       0x00000000        0x1 user_tasks.o
- .bss.Communication_Timer
-                0x00000000        0x1 user_tasks.o
- .bss.Overtemp_Timer
-                0x00000000        0x1 user_tasks.o
- .bss.Undervolt_Timer
-                0x00000000        0x1 user_tasks.o
- .bss.Overvolt_Timer
-                0x00000000        0x1 user_tasks.o
- .bss.Overcur_Timer
-                0x00000000        0x1 user_tasks.o
- .bss.S_Box_Timer
-                0x00000000        0x1 user_tasks.o
- .bss.slave     0x00000000        0x1 user_tasks.o
- .bss.Freigabe_flag
+ .rodata.cells_per_board
+                0x00000000       0x20 user_tasks.o
+ .rodata.crc15Table
+                0x00000000      0x200 user_tasks.o
+ .bss.STM_flag  0x00000000        0x1 user_tasks.o
+ .bss.Init_flag
                 0x00000000        0x1 user_tasks.o
  .bss.Test_flag
                 0x00000000        0x1 user_tasks.o
- .bss.Init_flag
+ .bss.Freigabe_flag
                 0x00000000        0x1 user_tasks.o
- .bss.STM_flag  0x00000000        0x1 user_tasks.o
+ .bss.slave     0x00000000        0x1 user_tasks.o
+ .bss.S_Box_Timer
+                0x00000000        0x1 user_tasks.o
+ .bss.Overcur_Timer
+                0x00000000        0x1 user_tasks.o
+ .bss.Overvolt_Timer
+                0x00000000        0x1 user_tasks.o
+ .bss.Undervolt_Timer
+                0x00000000        0x1 user_tasks.o
+ .bss.Overtemp_Timer
+                0x00000000        0x1 user_tasks.o
+ .bss.Communication_Timer
+                0x00000000        0x1 user_tasks.o
+ .bss.bal       0x00000000        0x1 user_tasks.o
+ .data.mode     0x00000000        0x1 user_tasks.o
  .text          0x00000000        0x0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_mulsi3.o)
  .data          0x00000000        0x0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_mulsi3.o)
  .bss           0x00000000        0x0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_mulsi3.o)
@@ -588,53 +579,55 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x232a
+.text           0x00000000     0x3d98
  *(.vectors)
  .vectors       0x00000000       0x7c D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega64m1/avr5/crtatmega64m1.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
  *(.progmem.gcc*)
+ .progmem.gcc_sw_table.bmschip_startGPIO
+                0x0000007c        0xe bmschip.o
  .progmem.gcc_sw_table.digital_output_init
-                0x0000007c       0xde DigIO.o
-                0x0000015a                . = ALIGN (0x2)
-                0x0000015a                __trampolines_start = .
+                0x0000008a       0xde DigIO.o
+                0x00000168                . = ALIGN (0x2)
+                0x00000168                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x0000015a        0x0 linker stubs
+ .trampolines   0x00000168        0x0 linker stubs
  *(.trampolines*)
-                0x0000015a                __trampolines_end = .
+                0x00000168                __trampolines_end = .
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
  *(.progmem*)
-                0x0000015a                . = ALIGN (0x2)
+                0x00000168                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x0000015a                __ctors_start = .
+                0x00000168                __ctors_start = .
  *(.ctors)
-                0x0000015a                __ctors_end = .
-                0x0000015a                __dtors_start = .
+                0x00000168                __ctors_end = .
+                0x00000168                __dtors_start = .
  *(.dtors)
-                0x0000015a                __dtors_end = .
+                0x00000168                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x0000015a        0x0 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega64m1/avr5/crtatmega64m1.o
-                0x0000015a                __init
+ .init0         0x00000168        0x0 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega64m1/avr5/crtatmega64m1.o
+                0x00000168                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x0000015a        0xc D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega64m1/avr5/crtatmega64m1.o
+ .init2         0x00000168        0xc D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega64m1/avr5/crtatmega64m1.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000166       0x16 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                0x00000166                __do_copy_data
- .init4         0x0000017c       0x10 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
-                0x0000017c                __do_clear_bss
+ .init4         0x00000174       0x16 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+                0x00000174                __do_copy_data
+ .init4         0x0000018a       0x10 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+                0x0000018a                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -645,203 +638,252 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x0000018c        0x8 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega64m1/avr5/crtatmega64m1.o
+ .init9         0x0000019a        0x8 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega64m1/avr5/crtatmega64m1.o
  *(.init9)
  *(.text)
- .text          0x00000194        0x4 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega64m1/avr5/crtatmega64m1.o
-                0x00000194                __vector_22
-                0x00000194                __vector_28
-                0x00000194                __vector_1
-                0x00000194                __vector_24
-                0x00000194                __vector_12
-                0x00000194                __bad_interrupt
-                0x00000194                __vector_6
-                0x00000194                __vector_3
-                0x00000194                __vector_23
-                0x00000194                __vector_30
-                0x00000194                __vector_25
-                0x00000194                __vector_11
-                0x00000194                __vector_13
-                0x00000194                __vector_17
-                0x00000194                __vector_19
-                0x00000194                __vector_7
-                0x00000194                __vector_27
-                0x00000194                __vector_5
-                0x00000194                __vector_4
-                0x00000194                __vector_9
-                0x00000194                __vector_2
-                0x00000194                __vector_21
-                0x00000194                __vector_15
-                0x00000194                __vector_29
-                0x00000194                __vector_8
-                0x00000194                __vector_10
-                0x00000194                __vector_16
-                0x00000194                __vector_18
-                0x00000198                . = ALIGN (0x2)
+ .text          0x000001a2        0x4 D:/Atmel/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega64m1/avr5/crtatmega64m1.o
+                0x000001a2                __vector_22
+                0x000001a2                __vector_28
+                0x000001a2                __vector_1
+                0x000001a2                __vector_24
+                0x000001a2                __vector_12
+                0x000001a2                __bad_interrupt
+                0x000001a2                __vector_6
+                0x000001a2                __vector_3
+                0x000001a2                __vector_23
+                0x000001a2                __vector_30
+                0x000001a2                __vector_25
+                0x000001a2                __vector_11
+                0x000001a2                __vector_13
+                0x000001a2                __vector_17
+                0x000001a2                __vector_19
+                0x000001a2                __vector_7
+                0x000001a2                __vector_27
+                0x000001a2                __vector_5
+                0x000001a2                __vector_4
+                0x000001a2                __vector_9
+                0x000001a2                __vector_2
+                0x000001a2                __vector_21
+                0x000001a2                __vector_15
+                0x000001a2                __vector_29
+                0x000001a2                __vector_8
+                0x000001a2                __vector_10
+                0x000001a2                __vector_16
+                0x000001a2                __vector_18
+                0x000001a6                . = ALIGN (0x2)
  *(.text.*)
- .text.bmschip_setOvUnVoltage
-                0x00000198       0xb0 bmschip.o
-                0x00000198                bmschip_setOvUnVoltage
- .text.bmschip_writeDischarge
-                0x00000248       0x14 bmschip.o
-                0x00000248                bmschip_writeDischarge
- .text.bmschip_startAdc
-                0x0000025c       0xbc bmschip.o
-                0x0000025c                bmschip_startAdc
- .text.Pec15    0x00000318       0x50 bmschip.o
-                0x00000318                Pec15
- .text.bmschip_readConfig
-                0x00000368       0x8e bmschip.o
-                0x00000368                bmschip_readConfig
- .text.bmschip_writeConfig
-                0x000003f6      0x1d4 bmschip.o
-                0x000003f6                bmschip_writeConfig
  .text.bmschip_init
-                0x000005ca      0x11e bmschip.o
-                0x000005ca                bmschip_init
+                0x000001a6      0x19c bmschip.o
+                0x000001a6                bmschip_init
+ .text.bmschip_setOvUnVoltage
+                0x00000342      0x122 bmschip.o
+                0x00000342                bmschip_setOvUnVoltage
+ .text.bmschip_writeDischarge
+                0x00000464       0x40 bmschip.o
+                0x00000464                bmschip_writeDischarge
+ .text.bmschip_writeConfig
+                0x000004a4      0x342 bmschip.o
+                0x000004a4                bmschip_writeConfig
+ .text.bmschip_readConfig
+                0x000007e6      0x102 bmschip.o
+                0x000007e6                bmschip_readConfig
+ .text.bmschip_startAdc
+                0x000008e8      0x106 bmschip.o
+                0x000008e8                bmschip_startAdc
  .text.bmschip_getVoltages
-                0x000006e8      0x1d0 bmschip.o
-                0x000006e8                bmschip_getVoltages
- .text.bmschip_startGPIO
-                0x000008b8      0x114 bmschip.o
-                0x000008b8                bmschip_startGPIO
- .text.bmschip_getTemperature
-                0x000009cc      0x4ba bmschip.o
-                0x000009cc                bmschip_getTemperature
- .text.Zellen_pro_Board
-                0x00000e86       0x7a bmschip.o
-                0x00000e86                Zellen_pro_Board
+                0x000009ee      0x31a bmschip.o
+                0x000009ee                bmschip_getVoltages
+ .text.Pec15    0x00000d08       0xa0 bmschip.o
+                0x00000d08                Pec15
  .text.bmschip_evaluate
-                0x00000f00      0x15e bmschip.o
-                0x00000f00                bmschip_evaluate
+                0x00000da8      0x2d4 bmschip.o
+                0x00000da8                bmschip_evaluate
  .text.bmschip_checkBalancing
-                0x0000105e       0xec bmschip.o
-                0x0000105e                bmschip_checkBalancing
+                0x0000107c      0x19e bmschip.o
+                0x0000107c                bmschip_checkBalancing
  .text.bmschip_recommendBalancing
-                0x0000114a       0xf6 bmschip.o
-                0x0000114a                bmschip_recommendBalancing
+                0x0000121a      0x1a6 bmschip.o
+                0x0000121a                bmschip_recommendBalancing
+ .text.bmschip_startGPIO
+                0x000013c0      0x180 bmschip.o
+                0x000013c0                bmschip_startGPIO
+ .text.bmschip_getTemperature
+                0x00001540      0x876 bmschip.o
+                0x00001540                bmschip_getTemperature
+ .text.Zellen_pro_Board
+                0x00001db6       0x9a bmschip.o
+                0x00001db6                Zellen_pro_Board
+ .text.Get_HV_Request_Status
+                0x00001e50       0x12 can.o
+                0x00001e50                Get_HV_Request_Status
+ .text.Reset_HV_Request
+                0x00001e62       0x14 can.o
+                0x00001e62                Reset_HV_Request
+ .text.Get_Error_Acknowledge_Status
+                0x00001e76       0x12 can.o
+                0x00001e76                Get_Error_Acknowledge_Status
+ .text.Reset_Error_Acknowledge
+                0x00001e88       0x14 can.o
+                0x00001e88                Reset_Error_Acknowledge
  .text.can_init
-                0x00001240      0x1f4 can.o
-                0x00001240                can_init
+                0x00001e9c      0x29e can.o
+                0x00001e9c                can_init
  .text.can_receive_message
-                0x00001434      0x106 can.o
-                0x00001434                can_receive_message
+                0x0000213a      0x1c0 can.o
+                0x0000213a                can_receive_message
  .text.can_send_message
-                0x0000153a      0x10a can.o
-                0x0000153a                can_send_message
+                0x000022fa      0x1ba can.o
+                0x000022fa                can_send_message
  .text.can_receive_task
-                0x00001644       0xb4 can.o
-                0x00001644                can_receive_task
+                0x000024b4       0xd6 can.o
+                0x000024b4                can_receive_task
  .text.can_send_task
-                0x000016f8      0x22c can.o
-                0x000016f8                can_send_task
+                0x0000258a      0x46c can.o
+                0x0000258a                can_send_task
  .text.can_task
-                0x00001924       0xd0 can.o
-                0x00001924                can_task
+                0x000029f6       0xfe can.o
+                0x000029f6                can_task
  .text.digital_output_init
-                0x000019f4       0x72 DigIO.o
-                0x000019f4                digital_output_init
+                0x00002af4      0x20e DigIO.o
+                0x00002af4                digital_output_init
+ .text.Get_ISO_Status
+                0x00002d02       0x12 isocontrol.o
+                0x00002d02                Get_ISO_Status
+ .text.Get_Interlock_Status
+                0x00002d14       0x12 isocontrol.o
+                0x00002d14                Get_Interlock_Status
  .text.ISO_Control_Task
-                0x00001a66       0x2a isocontrol.o
-                0x00001a66                ISO_Control_Task
+                0x00002d26       0x58 isocontrol.o
+                0x00002d26                ISO_Control_Task
+ .text.Get_Current_Status
+                0x00002d7e       0x12 ivtcontrol.o
+                0x00002d7e                Get_Current_Status
+ .text.abs32    0x00002d90       0x58 ivtcontrol.o
+                0x00002d90                abs32
  .text.IVT_Control_Task
-                0x00001a90       0x48 ivtcontrol.o
-                0x00001a90                IVT_Control_Task
+                0x00002de8       0x4a ivtcontrol.o
+                0x00002de8                IVT_Control_Task
+ .text.Get_Temp_Status
+                0x00002e32       0x12 moduleelectronic.o
+                0x00002e32                Get_Temp_Status
+ .text.Get_Voltage_Status
+                0x00002e44       0x12 moduleelectronic.o
+                0x00002e44                Get_Voltage_Status
+ .text.Get_Communication_Status
+                0x00002e56       0x12 moduleelectronic.o
+                0x00002e56                Get_Communication_Status
  .text.Moduleelectronic_Task
-                0x00001ad8      0x166 moduleelectronic.o
-                0x00001ad8                Moduleelectronic_Task
+                0x00002e68      0x1bc moduleelectronic.o
+                0x00002e68                Moduleelectronic_Task
  .text.spi_init_master
-                0x00001c3e       0x84 SPI.o
-                0x00001c3e                spi_init_master
+                0x00003024      0x15a SPI.o
+                0x00003024                spi_init_master
  .text.SPI_Exchange_Block
-                0x00001cc2       0x28 SPI.o
-                0x00001cc2                SPI_Exchange_Block
+                0x0000317e       0x96 SPI.o
+                0x0000317e                SPI_Exchange_Block
  .text.SPI_Transceive_Block
-                0x00001cea       0x28 SPI.o
-                0x00001cea                SPI_Transceive_Block
+                0x00003214       0xa2 SPI.o
+                0x00003214                SPI_Transceive_Block
  .text.SPI_Transmit_Block
-                0x00001d12       0x20 SPI.o
-                0x00001d12                SPI_Transmit_Block
+                0x000032b6       0x7e SPI.o
+                0x000032b6                SPI_Transmit_Block
  .text.SPI_IT_Callback
-                0x00001d32        0x4 SPI.o
-                0x00001d32                SPI_IT_Callback
+                0x00003334       0x22 SPI.o
+                0x00003334                SPI_IT_Callback
  .text.__vector_26
-                0x00001d36       0x84 SPI.o
-                0x00001d36                __vector_26
+                0x00003356       0xc6 SPI.o
+                0x00003356                __vector_26
  .text.Get_Statemachine_State
-                0x00001dba        0x6 statemachine.o
-                0x00001dba                Get_Statemachine_State
+                0x0000341c       0x12 statemachine.o
+                0x0000341c                Get_Statemachine_State
+ .text.Inactive
+                0x0000342e      0x130 statemachine.o
+                0x0000342e                Inactive
+ .text.Operational
+                0x0000355e       0x80 statemachine.o
+                0x0000355e                Operational
+ .text.Error    0x000035de       0x24 statemachine.o
+                0x000035de                Error
+ .text.Statemachine_Task
+                0x00003602       0x2a statemachine.o
+                0x00003602                Statemachine_Task
  .text.timer_init
-                0x00001dc0       0x2e timer.o
-                0x00001dc0                timer_init
- .text.__vector_14
-                0x00001dee       0xce timer.o
-                0x00001dee                __vector_14
- .text.Get_Sys_Tick
-                0x00001ebc       0x12 timer.o
-                0x00001ebc                Get_Sys_Tick
- .text.timer_50ms_task
-                0x00001ece        0xa timer.o
-                0x00001ece                timer_50ms_task
+                0x0000362c       0x56 timer.o
+                0x0000362c                timer_init
  .text.timer_task
-                0x00001ed8       0x22 timer.o
-                0x00001ed8                timer_task
- .text.Init     0x00001efa       0x5a uc_v3_base_sw.o
-                0x00001efa                Init
- .text.main     0x00001f54       0x12 uc_v3_base_sw.o
-                0x00001f54                main
+                0x00003682       0x40 timer.o
+                0x00003682                timer_task
+ .text.__vector_14
+                0x000036c2      0x126 timer.o
+                0x000036c2                __vector_14
+ .text.Get_Sys_Tick
+                0x000037e8       0x22 timer.o
+                0x000037e8                Get_Sys_Tick
+ .text.timer_50ms_task
+                0x0000380a       0x18 timer.o
+                0x0000380a                timer_50ms_task
+ .text.timer_100ms_task
+                0x00003822       0x14 timer.o
+                0x00003822                timer_100ms_task
+ .text.timer_500ms_task
+                0x00003836       0x1a timer.o
+                0x00003836                timer_500ms_task
+ .text.Init     0x00003850       0x80 uc_v3_base_sw.o
+                0x00003850                Init
+ .text.main     0x000038d0       0x1e uc_v3_base_sw.o
+                0x000038d0                main
  .text.usart_init
-                0x00001f66       0x3a usart.o
-                0x00001f66                usart_init
+                0x000038ee       0x9c usart.o
+                0x000038ee                usart_init
  .text.usart_transmit_char
-                0x00001fa0       0x14 usart.o
-                0x00001fa0                usart_transmit_char
+                0x0000398a       0x38 usart.o
+                0x0000398a                usart_transmit_char
  .text.usart_transmit_string
-                0x00001fb4       0x24 usart.o
-                0x00001fb4                usart_transmit_string
+                0x000039c2       0x44 usart.o
+                0x000039c2                usart_transmit_string
  .text.__vector_20
-                0x00001fd8       0x80 usart.o
-                0x00001fd8                __vector_20
+                0x00003a06       0xc0 usart.o
+                0x00003a06                __vector_20
  .text.libgcc.div
-                0x00002058       0x44 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00002058                __udivmodsi4
- .text.libgcc   0x0000209c        0xc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x0000209c                __tablejump2__
+                0x00003ac6       0x44 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00003ac6                __udivmodsi4
+ .text.libgcc   0x00003b0a        0xc d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x00003b0a                __tablejump2__
  .text.libgcc.mul
-                0x000020a8       0xa0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muldi3.o)
-                0x000020a8                __muldi3
+                0x00003b16       0xa0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muldi3.o)
+                0x00003b16                __muldi3
  .text.libgcc.mul
-                0x00002148       0x12 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muldi3_6.o)
-                0x00002148                __muldi3_6
+                0x00003bb6       0x12 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muldi3_6.o)
+                0x00003bb6                __muldi3_6
  .text.libgcc.div
-                0x0000215a       0x62 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divdi3.o)
-                0x0000215a                __moddi3
-                0x0000215e                __divdi3
-                0x00002160                __divdi3_moddi3
+                0x00003bc8       0x62 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divdi3.o)
+                0x00003bc8                __moddi3
+                0x00003bcc                __divdi3
+                0x00003bce                __divdi3_moddi3
  .text.libgcc.div
-                0x000021bc       0x1c d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivdi3.o)
-                0x000021bc                __umoddi3
-                0x000021c0                __udivdi3
-                0x000021c2                __udivdi3_umoddi3
+                0x00003c2a       0x1c d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivdi3.o)
+                0x00003c2a                __umoddi3
+                0x00003c2e                __udivdi3
+                0x00003c30                __udivdi3_umoddi3
  .text.libgcc.div
-                0x000021d8       0xa2 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmod64.o)
-                0x000021d8                __udivmod64
- .text.libgcc   0x0000227a       0x20 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negdi2.o)
-                0x0000227a                __negdi2
+                0x00003c46       0xa2 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmod64.o)
+                0x00003c46                __udivmod64
+ .text.libgcc   0x00003ce8       0x20 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negdi2.o)
+                0x00003ce8                __negdi2
  .text.libgcc.prologue
-                0x0000229a       0x38 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
-                0x0000229a                __prologue_saves__
+                0x00003d08       0x38 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
+                0x00003d08                __prologue_saves__
  .text.libgcc.prologue
-                0x000022d2       0x36 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
-                0x000022d2                __epilogue_restores__
+                0x00003d40       0x36 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
+                0x00003d40                __epilogue_restores__
  .text.libgcc.mul
-                0x00002308       0x1e d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                0x00002308                __umulhisi3
-                0x00002326                . = ALIGN (0x2)
+                0x00003d76       0x1e d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00003d76                __umulhisi3
+                0x00003d94                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00002326        0x0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00002326                _exit
-                0x00002326                exit
+ .fini9         0x00003d94        0x0 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00003d94                _exit
+                0x00003d94                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -860,118 +902,136 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00002326        0x4 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00003d94        0x4 d:/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000232a                _etext = .
+                0x00003d98                _etext = .
 
-.data           0x00800100      0x26a load address 0x0000232a
+.data           0x00800100      0x25a load address 0x00003d98
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  .data.enabled  0x00800100        0x1 isocontrol.o
  .data.enabled  0x00800101        0x1 ivtcontrol.o
  .data.enabled  0x00800102        0x1 moduleelectronic.o
- .data.count3.1784
-                0x00800103        0x1 timer.o
- .data.count2.1783
-                0x00800104        0x1 timer.o
- .data.count1.1782
-                0x00800105        0x1 timer.o
- .data.ms_count.1781
-                0x00800106        0x2 timer.o
+ .data.StateMachineFunctions
+                0x00800103        0x6 statemachine.o
+                0x00800103                StateMachineFunctions
+ .data.entry.1702
+                0x00800109        0x2 statemachine.o
+ .data.ms_count.1783
+                0x0080010b        0x2 timer.o
+ .data.count1.1784
+                0x0080010d        0x1 timer.o
+ .data.count2.1785
+                0x0080010e        0x1 timer.o
+ .data.count3.1786
+                0x0080010f        0x1 timer.o
  .data.usart_tx_complete
-                0x00800108        0x1 usart.o
+                0x00800110        0x1 usart.o
  *(.rodata)
+ .rodata        0x00800111        0x3 bmschip.o
+ .rodata        0x00800114       0x25 uc_v3_base_sw.o
  *(.rodata*)
- .rodata.str1.1
-                0x00800109        0x3 bmschip.o
- .rodata.crc15Table
-                0x0080010c      0x200 bmschip.o
  .rodata.cells_per_board
-                0x0080030c       0x20 bmschip.o
- .rodata.str1.1
-                0x0080032c       0x3e uc_v3_base_sw.o
+                0x00800139       0x20 bmschip.o
+ .rodata.crc15Table
+                0x00800159      0x200 bmschip.o
  *(.gnu.linkonce.d*)
-                0x0080036a                . = ALIGN (0x2)
-                0x0080036a                _edata = .
-                0x0080036a                PROVIDE (__data_end, .)
+                0x0080035a                . = ALIGN (0x2)
+ *fill*         0x00800359        0x1 
+                0x0080035a                _edata = .
+                0x0080035a                PROVIDE (__data_end, .)
 
-.bss            0x0080036a      0x2e3
-                0x0080036a                PROVIDE (__bss_start, .)
+.bss            0x0080035a      0x2ef
+                0x0080035a                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.index.1845
-                0x0080036a        0x1 can.o
- .bss.error_acknowledge
-                0x0080036b        0x1 can.o
  .bss.hv_request
-                0x0080036c        0x1 can.o
- .bss.interlock_status
-                0x0080036d        0x1 isocontrol.o
+                0x0080035a        0x1 can.o
+ .bss.error_acknowledge
+                0x0080035b        0x1 can.o
+ .bss.index.1846
+                0x0080035c        0x1 can.o
  .bss.iso_status
-                0x0080036e        0x1 isocontrol.o
+                0x0080035d        0x1 isocontrol.o
+ .bss.interlock_status
+                0x0080035e        0x1 isocontrol.o
  .bss.current_status
-                0x0080036f        0x1 ivtcontrol.o
- .bss.communicationcounter
-                0x00800370        0x1 moduleelectronic.o
- .bss.voltagecounter
-                0x00800371        0x1 moduleelectronic.o
- .bss.tempcounter
-                0x00800372        0x1 moduleelectronic.o
- .bss.voltage_status
-                0x00800373        0x1 moduleelectronic.o
+                0x0080035f        0x1 ivtcontrol.o
  .bss.temp_status
-                0x00800374        0x1 moduleelectronic.o
- .bss.spi_buffer
-                0x00800375        0x2 SPI.o
+                0x00800360        0x1 moduleelectronic.o
+ .bss.voltage_status
+                0x00800361        0x1 moduleelectronic.o
+ .bss.communication_status
+                0x00800362        0x1 moduleelectronic.o
+ .bss.tempcounter
+                0x00800363        0x1 moduleelectronic.o
+ .bss.voltagecounter
+                0x00800364        0x1 moduleelectronic.o
+ .bss.communicationcounter
+                0x00800365        0x1 moduleelectronic.o
+ .bss.idx       0x00800366        0x1 SPI.o
+ .bss.spi_busy  0x00800367        0x1 SPI.o
  .bss.transmit_len
-                0x00800377        0x1 SPI.o
- .bss.spi_busy  0x00800378        0x1 SPI.o
- .bss.idx       0x00800379        0x1 SPI.o
- .bss.state     0x0080037a        0x1 statemachine.o
- .bss.flag_100ms
-                0x0080037b        0x1 timer.o
- .bss.flag_50ms
-                0x0080037c        0x1 timer.o
+                0x00800368        0x1 SPI.o
+ .bss.spi_buffer
+                0x00800369        0x2 SPI.o
+ .bss.state     0x0080036b        0x1 statemachine.o
+ .bss.hv_ready  0x0080036c        0x1 statemachine.o
+ .bss.substate.1698
+                0x0080036d        0x1 statemachine.o
+ .bss.teststarttime.1703
+                0x0080036e        0x4 statemachine.o
  .bss.millisec_count
-                0x0080037d        0x4 timer.o
-                0x0080037d                millisec_count
- .bss.tx_tail_idx
-                0x00800381        0x1 usart.o
- .bss.tx_head_idx
-                0x00800382        0x1 usart.o
+                0x00800372        0x4 timer.o
+                0x00800372                millisec_count
+ .bss.flag_1ms  0x00800376        0x1 timer.o
+ .bss.flag_5ms  0x00800377        0x1 timer.o
+ .bss.flag_10ms
+                0x00800378        0x1 timer.o
+ .bss.flag_50ms
+                0x00800379        0x1 timer.o
+ .bss.flag_100ms
+                0x0080037a        0x1 timer.o
+ .bss.flag_500ms
+                0x0080037b        0x1 timer.o
+ .bss.flag_1s   0x0080037c        0x1 timer.o
  .bss.usart_tx_buffer
-                0x00800383       0x40 usart.o
- .bss.Rec       0x008003c3        0x1 user_tasks.o
-                0x008003c3                Rec
+                0x0080037d       0x40 usart.o
+ .bss.tx_head_idx
+                0x008003bd        0x1 usart.o
+ .bss.tx_tail_idx
+                0x008003be        0x1 usart.o
  .bss.curDirect
-                0x008003c4        0x1 user_tasks.o
-                0x008003c4                curDirect
+                0x008003bf        0x1 user_tasks.o
+                0x008003bf                curDirect
+ .bss.Rec       0x008003c0        0x1 user_tasks.o
+                0x008003c0                Rec
  *(COMMON)
- COMMON         0x008003c5       0x24 bmschip.o
-                0x008003c5                buff
-                0x008003c7                wait_count
-                0x008003c9                ltc6804
-                0x008003df                uart_out
- COMMON         0x008003e9        0x1 can.o
-                0x008003e9                can_tx_flags
- COMMON         0x008003ea      0x263 user_tasks.o
-                0x008003ea                S_Box_Timer_Done
-                0x008003eb                tempspeicher
-                0x008003ed                bms
-                0x00800646                curSpeicher
-                0x0080064a                i
-                0x0080064b                i1
-                0x0080064c                eingabe
-                0x0080064d                PROVIDE (__bss_end, .)
-                0x0000232a                __data_load_start = LOADADDR (.data)
-                0x00002594                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008003c1       0x24 bmschip.o
+                0x008003c1                buff
+                0x008003c3                wait_count
+                0x008003c5                ltc6804
+                0x008003db                uart_out
+ COMMON         0x008003e5        0x1 can.o
+                0x008003e5                can_tx_flags
+ COMMON         0x008003e6      0x263 user_tasks.o
+                0x008003e6                S_Box_Timer_Done
+                0x008003e7                tempspeicher
+                0x008003e9                bms
+                0x00800642                curSpeicher
+                0x00800646                i
+                0x00800647                i1
+                0x00800648                eingabe
+                0x00800649                PROVIDE (__bss_end, .)
+                0x00003d98                __data_load_start = LOADADDR (.data)
+                0x00003ff2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080064d        0x0
+.noinit         0x00800649        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080064d                _end = .
+                0x00800649                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -1047,7 +1107,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x370
+.debug_aranges  0x00000000      0x378
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x90 bmschip.o
@@ -1060,119 +1120,122 @@ END GROUP
  .debug_aranges
                 0x00000160       0x40 ivtcontrol.o
  .debug_aranges
-                0x000001a0       0x40 moduleelectronic.o
+                0x000001a0       0x48 moduleelectronic.o
  .debug_aranges
-                0x000001e0       0x58 SPI.o
+                0x000001e8       0x58 SPI.o
  .debug_aranges
-                0x00000238       0x40 statemachine.o
+                0x00000240       0x40 statemachine.o
  .debug_aranges
-                0x00000278       0x70 timer.o
+                0x00000280       0x70 timer.o
  .debug_aranges
-                0x000002e8       0x28 uc_v3_base_sw.o
+                0x000002f0       0x28 uc_v3_base_sw.o
  .debug_aranges
-                0x00000310       0x48 usart.o
+                0x00000318       0x48 usart.o
  .debug_aranges
-                0x00000358       0x18 user_tasks.o
+                0x00000360       0x18 user_tasks.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x4221
+.debug_info     0x00000000     0x2a7d
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0xf24 bmschip.o
- .debug_info    0x00000f24      0x9fa can.o
- .debug_info    0x0000191e       0x98 DigIO.o
- .debug_info    0x000019b6      0x111 isocontrol.o
- .debug_info    0x00001ac7      0x5f0 ivtcontrol.o
- .debug_info    0x000020b7      0x6d2 moduleelectronic.o
- .debug_info    0x00002789      0x4ff SPI.o
- .debug_info    0x00002c88      0x2b7 statemachine.o
- .debug_info    0x00002f3f      0x52e timer.o
- .debug_info    0x0000346d      0x4e1 uc_v3_base_sw.o
- .debug_info    0x0000394e      0x214 usart.o
- .debug_info    0x00003b62      0x6bf user_tasks.o
+ .debug_info    0x00000000      0xaad bmschip.o
+ .debug_info    0x00000aad      0x715 can.o
+ .debug_info    0x000011c2       0x99 DigIO.o
+ .debug_info    0x0000125b      0x111 isocontrol.o
+ .debug_info    0x0000136c      0x3aa ivtcontrol.o
+ .debug_info    0x00001716      0x42e moduleelectronic.o
+ .debug_info    0x00001b44      0x2ca SPI.o
+ .debug_info    0x00001e0e      0x1a9 statemachine.o
+ .debug_info    0x00001fb7      0x2bd timer.o
+ .debug_info    0x00002274      0x158 uc_v3_base_sw.o
+ .debug_info    0x000023cc      0x204 usart.o
+ .debug_info    0x000025d0      0x4ad user_tasks.o
 
-.debug_abbrev   0x00000000     0x1058
+.debug_abbrev   0x00000000      0xd47
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x2e0 bmschip.o
- .debug_abbrev  0x000002e0      0x2b6 can.o
- .debug_abbrev  0x00000596       0x60 DigIO.o
- .debug_abbrev  0x000005f6       0x76 isocontrol.o
- .debug_abbrev  0x0000066c      0x174 ivtcontrol.o
- .debug_abbrev  0x000007e0      0x196 moduleelectronic.o
- .debug_abbrev  0x00000976      0x165 SPI.o
- .debug_abbrev  0x00000adb      0x120 statemachine.o
- .debug_abbrev  0x00000bfb      0x174 timer.o
- .debug_abbrev  0x00000d6f      0x10a uc_v3_base_sw.o
- .debug_abbrev  0x00000e79       0xf2 usart.o
- .debug_abbrev  0x00000f6b       0xed user_tasks.o
+ .debug_abbrev  0x00000000      0x213 bmschip.o
+ .debug_abbrev  0x00000213      0x24a can.o
+ .debug_abbrev  0x0000045d       0x60 DigIO.o
+ .debug_abbrev  0x000004bd       0x76 isocontrol.o
+ .debug_abbrev  0x00000533      0x133 ivtcontrol.o
+ .debug_abbrev  0x00000666      0x133 moduleelectronic.o
+ .debug_abbrev  0x00000799      0x11c SPI.o
+ .debug_abbrev  0x000008b5       0xe7 statemachine.o
+ .debug_abbrev  0x0000099c      0x107 timer.o
+ .debug_abbrev  0x00000aa3       0xd4 uc_v3_base_sw.o
+ .debug_abbrev  0x00000b77      0x101 usart.o
+ .debug_abbrev  0x00000c78       0xcf user_tasks.o
 
-.debug_line     0x00000000     0x2336
+.debug_line     0x00000000     0x27c1
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0xb2e bmschip.o
- .debug_line    0x00000b2e      0x6b7 can.o
- .debug_line    0x000011e5      0x195 DigIO.o
- .debug_line    0x0000137a      0x114 isocontrol.o
- .debug_line    0x0000148e      0x14c ivtcontrol.o
- .debug_line    0x000015da      0x203 moduleelectronic.o
- .debug_line    0x000017dd      0x2a2 SPI.o
- .debug_line    0x00001a7f      0x215 statemachine.o
- .debug_line    0x00001c94      0x252 timer.o
- .debug_line    0x00001ee6      0x158 uc_v3_base_sw.o
- .debug_line    0x0000203e      0x250 usart.o
- .debug_line    0x0000228e       0xa8 user_tasks.o
+ .debug_line    0x00000000      0xd3c bmschip.o
+ .debug_line    0x00000d3c      0x747 can.o
+ .debug_line    0x00001483      0x1a1 DigIO.o
+ .debug_line    0x00001624      0x138 isocontrol.o
+ .debug_line    0x0000175c      0x15e ivtcontrol.o
+ .debug_line    0x000018ba      0x281 moduleelectronic.o
+ .debug_line    0x00001b3b      0x314 SPI.o
+ .debug_line    0x00001e4f      0x263 statemachine.o
+ .debug_line    0x000020b2      0x2a1 timer.o
+ .debug_line    0x00002353      0x142 uc_v3_base_sw.o
+ .debug_line    0x00002495      0x284 usart.o
+ .debug_line    0x00002719       0xa8 user_tasks.o
 
-.debug_frame    0x00000000      0xadc
+.debug_frame    0x00000000      0xc5c
  *(.debug_frame)
- .debug_frame   0x00000000      0x428 bmschip.o
- .debug_frame   0x00000428      0x238 can.o
- .debug_frame   0x00000660       0x24 DigIO.o
- .debug_frame   0x00000684       0x64 isocontrol.o
- .debug_frame   0x000006e8       0x64 ivtcontrol.o
- .debug_frame   0x0000074c       0x78 moduleelectronic.o
- .debug_frame   0x000007c4       0xdc SPI.o
- .debug_frame   0x000008a0       0x70 statemachine.o
- .debug_frame   0x00000910       0xe8 timer.o
- .debug_frame   0x000009f8       0x34 uc_v3_base_sw.o
- .debug_frame   0x00000a2c       0xb0 usart.o
+ .debug_frame   0x00000000      0x2c8 bmschip.o
+ .debug_frame   0x000002c8      0x208 can.o
+ .debug_frame   0x000004d0       0x34 DigIO.o
+ .debug_frame   0x00000504       0xb4 isocontrol.o
+ .debug_frame   0x000005b8       0xb4 ivtcontrol.o
+ .debug_frame   0x0000066c       0xe0 moduleelectronic.o
+ .debug_frame   0x0000074c      0x158 SPI.o
+ .debug_frame   0x000008a4       0xc8 statemachine.o
+ .debug_frame   0x0000096c      0x194 timer.o
+ .debug_frame   0x00000b00       0x54 uc_v3_base_sw.o
+ .debug_frame   0x00000b54      0x108 usart.o
 
-.debug_str      0x00000000      0xbea
+.debug_str      0x00000000      0xbe3
  *(.debug_str)
- .debug_str     0x00000000      0x454 bmschip.o
-                                0x4d0 (size before relaxing)
- .debug_str     0x00000454      0x16b can.o
-                                0x3ac (size before relaxing)
- .debug_str     0x000005bf       0x59 DigIO.o
-                                0x17c (size before relaxing)
- .debug_str     0x00000618       0x92 isocontrol.o
-                                0x1d9 (size before relaxing)
- .debug_str     0x000006aa       0x72 ivtcontrol.o
+ .debug_str     0x00000000      0x3fb bmschip.o
+                                0x477 (size before relaxing)
+ .debug_str     0x000003fb      0x177 can.o
+                                0x3b8 (size before relaxing)
+ .debug_str     0x00000572       0x2c DigIO.o
+                                0x179 (size before relaxing)
+ .debug_str     0x0000059e       0x92 isocontrol.o
+                                0x1d6 (size before relaxing)
+ .debug_str     0x00000630       0x72 ivtcontrol.o
                                 0x2ad (size before relaxing)
- .debug_str     0x0000071c       0xf0 moduleelectronic.o
-                                0x3b1 (size before relaxing)
- .debug_str     0x0000080c       0x98 SPI.o
+ .debug_str     0x000006a2      0x109 moduleelectronic.o
+                                0x348 (size before relaxing)
+ .debug_str     0x000007ab       0xd3 SPI.o
                                 0x249 (size before relaxing)
- .debug_str     0x000008a4       0xa0 statemachine.o
-                                0x2c1 (size before relaxing)
- .debug_str     0x00000944      0x10e timer.o
-                                0x2cd (size before relaxing)
- .debug_str     0x00000a52       0x2a uc_v3_base_sw.o
-                                0x225 (size before relaxing)
- .debug_str     0x00000a7c       0x98 usart.o
-                                0x235 (size before relaxing)
- .debug_str     0x00000b14       0xd6 user_tasks.o
+ .debug_str     0x0000087e       0x9c statemachine.o
+                                0x21b (size before relaxing)
+ .debug_str     0x0000091a      0x11b timer.o
+                                0x2a2 (size before relaxing)
+ .debug_str     0x00000a35       0x1f uc_v3_base_sw.o
+                                0x1bd (size before relaxing)
+ .debug_str     0x00000a54       0xb9 usart.o
+                                0x232 (size before relaxing)
+ .debug_str     0x00000b0d       0xd6 user_tasks.o
                                 0x32c (size before relaxing)
 
-.debug_loc      0x00000000     0x2bc9
+.debug_loc      0x00000000     0x1862
  *(.debug_loc)
- .debug_loc     0x00000000     0x1baf bmschip.o
- .debug_loc     0x00001baf      0x9f7 can.o
- .debug_loc     0x000025a6       0x4a ivtcontrol.o
- .debug_loc     0x000025f0       0x81 moduleelectronic.o
- .debug_loc     0x00002671      0x258 SPI.o
- .debug_loc     0x000028c9       0x2f statemachine.o
- .debug_loc     0x000028f8       0x70 timer.o
- .debug_loc     0x00002968      0x261 usart.o
+ .debug_loc     0x00000000      0x650 bmschip.o
+ .debug_loc     0x00000650      0x43e can.o
+ .debug_loc     0x00000a8e       0x48 DigIO.o
+ .debug_loc     0x00000ad6      0x127 isocontrol.o
+ .debug_loc     0x00000bfd      0x134 ivtcontrol.o
+ .debug_loc     0x00000d31      0x189 moduleelectronic.o
+ .debug_loc     0x00000eba      0x2ce SPI.o
+ .debug_loc     0x00001188      0x15b statemachine.o
+ .debug_loc     0x000012e3      0x2e4 timer.o
+ .debug_loc     0x000015c7       0x76 uc_v3_base_sw.o
+ .debug_loc     0x0000163d      0x225 usart.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1192,19 +1255,19 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x2d8
+.debug_ranges   0x00000000      0x300
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x98 bmschip.o
- .debug_ranges  0x00000098       0x78 can.o
- .debug_ranges  0x00000110       0x10 DigIO.o
- .debug_ranges  0x00000120       0x30 isocontrol.o
- .debug_ranges  0x00000150       0x30 ivtcontrol.o
- .debug_ranges  0x00000180       0x30 moduleelectronic.o
- .debug_ranges  0x000001b0       0x48 SPI.o
- .debug_ranges  0x000001f8       0x30 statemachine.o
- .debug_ranges  0x00000228       0x60 timer.o
- .debug_ranges  0x00000288       0x18 uc_v3_base_sw.o
- .debug_ranges  0x000002a0       0x38 usart.o
+ .debug_ranges  0x00000000       0x80 bmschip.o
+ .debug_ranges  0x00000080       0x60 can.o
+ .debug_ranges  0x000000e0       0x10 DigIO.o
+ .debug_ranges  0x000000f0       0x30 isocontrol.o
+ .debug_ranges  0x00000120       0x30 ivtcontrol.o
+ .debug_ranges  0x00000150       0x38 moduleelectronic.o
+ .debug_ranges  0x00000188       0x48 SPI.o
+ .debug_ranges  0x000001d0       0x48 statemachine.o
+ .debug_ranges  0x00000218       0x98 timer.o
+ .debug_ranges  0x000002b0       0x18 uc_v3_base_sw.o
+ .debug_ranges  0x000002c8       0x38 usart.o
 
 .debug_macro
  *(.debug_macro)

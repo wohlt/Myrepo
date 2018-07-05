@@ -61,6 +61,7 @@
 				if(Get_Voltage_Status() == VOLTAGE_ERROR || Get_Current_Status() == CURRENT_ERROR || Get_ISO_Status() == ISO_ERROR ||
 				 Get_Temp_Status() == TEMP_ERROR || Get_Interlock_Status() == INTERLOCK_ERROR || Get_Communication_Status() == COMMUNICATION_ERROR)
 				{
+					Reset_HV_Request();
 					substate = IDLE;
 					entry = 1;
 				}
@@ -100,7 +101,7 @@
 		else if(Get_HV_Request_Status() == HV_NOREQUEST)
 		{
 			Reset_BCM_Freigabe;
-			state = INACTIVE
+			state = INACTIVE;
 			hv_ready = 0;
 		}
 	}

@@ -546,6 +546,7 @@ void bmschip_startGPIO(uint8_t pin)
 uint8_t bmschip_getTemperature(uint8_t pin)		
 {
 	uint8_t i;
+	uint8_t gpio = pin;
 	uint16_t pec;
 	uint8_t cmd[12];
 	uint8_t receive[8];
@@ -554,7 +555,7 @@ uint8_t bmschip_getTemperature(uint8_t pin)
 	sint64_t x;					//Zwischenwert für Temperaturkennlinie
 	
 	
-	bmschip_startGPIO(pin);		//Spannung an jeweiligem GPIO
+	bmschip_startGPIO(gpio);		//Spannung an jeweiligem GPIO
 	
 	for(i = 0;i<7;i++)
 	{
@@ -633,44 +634,44 @@ uint8_t bmschip_getTemperature(uint8_t pin)
 	
 	//Nachbildung der Thermistorkennlinie und Berechnung der Temperatur
 	
-	for(int k=0;k<5;k++) //Thermistor 1-5
-	{
+	//for(int k=0;k<5;k++) //Thermistor 1-5
+	//{
 		for(i=0; i<SLAVE_BOARDS; i++)
 		{
-			x = (((sint64_t)bms.temp.V_temp[k][i])*1000000)/(sint64_t)bms.temp.V_reference[i];
+			x = (((sint64_t)bms.temp.V_temp[2][i])*1000000)/(sint64_t)bms.temp.V_reference[2];
 			
 			if(x>=780000)
 			{
-				bms.temp.temp_transmit[k][i] = (sint32_t)((x-780000)/(-70));
+				bms.temp.temp_transmit[2][i] = (sint32_t)((x-780000)/(-70));
 			}
 			else if(x>=340000)
 			{
-				bms.temp.temp_transmit[k][i] = (sint32_t)((x-780000)/(-110));
+				bms.temp.temp_transmit[2][i] = (sint32_t)((x-780000)/(-110));
 			}
 			else if(x<183000)
 			{
-				bms.temp.temp_transmit[k][i] = (sint32_t)((x-490000)/(-51));
+				bms.temp.temp_transmit[2][i] = (sint32_t)((x-490000)/(-51));
 			}
 			else
 			{
-				bms.temp.temp_transmit[k][i] = (sint32_t)((x-645000)/(-77));
+				bms.temp.temp_transmit[2][i] = (sint32_t)((x-645000)/(-77));
 			}
 		}
-	}
+	//}
 	
 	
 	//Maximaltemperatur
 	max = 0;
-	for(int k = 0; k<5; k++)	//Thermistor 1-5
-	{
+	//for(int k = 0; k<5; k++)	//Thermistor 1-5
+	//{
 		for(i=0;i<SLAVE_BOARDS; i++)
 		{
-			if(max < bms.temp.temp_transmit[k][i])
+			if(max < bms.temp.temp_transmit[2][i])
 			{
-				max = bms.temp.temp_transmit[k][i];
+				max = bms.temp.temp_transmit[2][i];
 			}
 		}		
-	}
+	//}
 	bms.temp.temp_max = max;
 	return 0;
 }
