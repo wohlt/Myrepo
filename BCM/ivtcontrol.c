@@ -45,10 +45,13 @@ void IVT_Control_Task()
 		if(abs32(bms.cur.s32) > OVERCURRENT)
 		{
 			current_status = CURRENT_ERROR;
+			SET_TRUE(flagOverCur);
+			SET_TRUE(flagCritical);
 		}
 		else
 		{
 			current_status = CURRENT_OK;
+			SET_FALSE(flagOverCur);
 		}
 	}
 }

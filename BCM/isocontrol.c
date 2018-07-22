@@ -1,12 +1,13 @@
 /*
  * isocontrol.c
  *
- * Created: 12.05.2018 21:20:26
+ * Created: 13.05.2018 21:20:26
  *  Author: wohlt
  */ 
 
 #include <avr/io.h>
 #include "DigIO.h"
+#include "bms_data.h"
 #include "isocontrol.h"
 
 static uint8_t enabled = 1;
@@ -45,6 +46,7 @@ void ISO_Control_Task()
 		}
 		else
 		{
+			SET_TRUE(flagCritical);
 			iso_status = ISO_ERROR;
 		}
 		
@@ -54,6 +56,7 @@ void ISO_Control_Task()
 		}
 		else
 		{
+			SET_TRUE(flagCritical);
 			interlock_status = INTERLOCK_ERROR;
 		}
 	}

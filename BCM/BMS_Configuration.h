@@ -101,7 +101,7 @@ static const uint8_t cells_per_board2[16][12]={
 #define OVERTEMP	6000			// == 60.00°C
 
 // Ueberstrom
-#define OVERCURRENT 150000		// == 150000000 mA == 150A
+#define OVERCURRENT 130000		// == 150000000 mA == 150A
 
 // Entprellung der Grenzen
 #define ENTPRELLUNG 4

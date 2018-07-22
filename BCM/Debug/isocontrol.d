@@ -10,7 +10,8 @@ isocontrol.d isocontrol.o: .././isocontrol.c \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././DigIO.h .././isocontrol.h
+ .././DigIO.h .././bms_data.h .././bmschip.h .././header.h \
+ .././BMS_Configuration.h .././isocontrol.h
 
 d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -35,5 +36,13 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h:
 d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
 .././DigIO.h:
+
+.././bms_data.h:
+
+.././bmschip.h:
+
+.././header.h:
+
+.././BMS_Configuration.h:
 
 .././isocontrol.h:

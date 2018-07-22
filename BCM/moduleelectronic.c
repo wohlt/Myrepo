@@ -78,17 +78,31 @@ void Moduleelectronic_Task()	//Call every 50ms
 			if(bms.volt.min<=UNDERVOLT || bms.volt.max>=OVERVOLT)
 			{
 				voltagecounter++;
+				if(bms.volt.min<=UNDERVOLT)
+				{
+					SET_TRUE(flagUnderVol);
+				}
+				else if(bms.volt.max>=OVERVOLT)
+				{
+					SET_TRUE(flagOverVol);
+				}
+				
 				if(voltagecounter >= DEBOUNCELIMIT)
 				{
 					voltage_status = VOLTAGE_ERROR;
 					voltagecounter = 0;
+					SET_TRUE(flagCritical);
 				}
 			}
 			else
 			{
 				voltage_status = VOLTAGE_OK;
 				voltagecounter = 0;
+				SET_FALSE(flagOverVol);
+				SET_FALSE(flagUnderVol);
 			}
+			
+			CAN_SCHEDULE_MESSAGE2;
 			
 			//-----------------------------Get Cell Temperature and check them---------------------------------
 			if(!bmschip_getTemperature(0))
@@ -96,23 +110,34 @@ void Moduleelectronic_Task()	//Call every 50ms
 				if(bms.temp.temp_max>=OVERTEMP)
 				{
 					tempcounter++;
+					SET_TRUE(flagOverTemp);
 					if(tempcounter >= DEBOUNCELIMIT)
 					{
 						tempcounter = 0;
 						temp_status = TEMP_ERROR;
+						SET_TRUE(flagCritical);
 					}
 				}
 				else
 				{
 					tempcounter = 0;
 					temp_status = TEMP_OK;
+					SET_FALSE(flagOverTemp);
 				}
 				CAN_SCHEDULE_MESSAGE4;
 				
 
 				//Balancing empfohlen?
 				Rec = bmschip_recommendBalancing(bms.volt.val, bms.volt.min, bms.balancing.undervoltage, bms.balancing.RecCells);
-
+				if(Rec)
+				{
+					SET_TRUE(flagBalRec);
+				}
+				else
+				{
+					SET_FALSE(flagBalRec);
+				}
+				
 				//Balancing erlaubt?
 				if(IS_TRUE(flagBalActiv))
 				{
@@ -133,10 +158,12 @@ void Moduleelectronic_Task()	//Call every 50ms
 			else
 			{
 				communicationcounter++;
+				SET_TRUE(flagCommunication);
 				if(communicationcounter >= DEBOUNCELIMIT)
 				{
 					communicationcounter = 0;
 					communication_status = COMMUNICATION_ERROR;
+					SET_TRUE(flagCritical);
 				}
 			}			
 			
@@ -144,13 +171,14 @@ void Moduleelectronic_Task()	//Call every 50ms
 		else															//PEC was wrong
 		{
 			communicationcounter++;
+			SET_TRUE(flagCommunication);
 			if(communicationcounter >= DEBOUNCELIMIT)
 			{
 				communicationcounter = 0;
 				communication_status = COMMUNICATION_ERROR;
+				SET_TRUE(flagCritical);
 			}
-		}
-//		CAN_SCHEDULE_MESSAGE2;
+		}		
 			
 	}
 }

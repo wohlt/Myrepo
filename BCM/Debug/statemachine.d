@@ -10,7 +10,8 @@ statemachine.d statemachine.o: .././statemachine.c \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././statemachine.h .././header.h .././can.h .././DigIO.h .././usart.h \
+ .././statemachine.h .././header.h .././can.h .././bms_data.h \
+ .././bmschip.h .././BMS_Configuration.h .././DigIO.h .././usart.h \
  .././moduleelectronic.h .././timer.h .././ivtcontrol.h .././isocontrol.h
 
 d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
@@ -40,6 +41,12 @@ d:\atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 .././header.h:
 
 .././can.h:
+
+.././bms_data.h:
+
+.././bmschip.h:
+
+.././BMS_Configuration.h:
 
 .././DigIO.h:
 

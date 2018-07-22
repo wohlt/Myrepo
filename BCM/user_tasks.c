@@ -36,7 +36,7 @@
 // *****************************************************************************************
 
 // *** Global Defines **********************************************************************
-bms_s bms;
+
 
 //Freigabe_flag des STM-boards für kontinuierlichen Betrieb
 	uint8_t STM_flag = 0;
@@ -65,7 +65,7 @@ bms_s bms;
 	
 	
  
-uint8_t i, i1 , Rec = 0, bal = 0;
+
 
 uint16_t wait_count;
 sint16_t tempspeicher;

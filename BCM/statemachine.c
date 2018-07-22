@@ -8,6 +8,7 @@
 #include "statemachine.h"
 #include "header.h"
 #include "can.h"
+#include "bms_data.h"
 #include "DigIO.h"
 #include "usart.h"
 #include "moduleelectronic.h"
@@ -111,6 +112,7 @@
 		if(Get_Error_Acknowledge_Status() == ERRORACKNOWLEDGED)
 		{
 			state = INACTIVE;
+			SET_FALSE(flagCritical);
 			Reset_HV_Request();
 			Reset_Error_Acknowledge();
 		}
